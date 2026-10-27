@@ -1,0 +1,336 @@
+/* Bounce Court website. One stylesheet for every page.
+   Bubble Pop's palette (the game's store identity) and its pixel font for
+   headings. Mobile first: no horizontal scroll at 320 px (playbook §11). */
+
+@font-face {
+	font-family: "Kenney Pixel";
+	src: url("/fonts/kenney_pixel.ttf") format("truetype");
+	font-display: swap;
+}
+
+:root {
+	--bg: #fbd9c9;          /* the field around the arena */
+	--card: #fff2e4;        /* the arena */
+	--ink: #54374b;         /* cocoa: text and outlines */
+	--muted: #7d5f71;
+	--pink: #ff4fa0;        /* the paddle */
+	--pink-dark: #c92f7a;
+	--blue: #2fb8ff;        /* Gummo */
+	--orange: #ffb02e;      /* combo */
+	--good: #3ddc84;        /* power-up capsules, as in the game */
+	--bad: #ff5a5a;
+	--maxw: 64rem;
+	--pixel: "Kenney Pixel", ui-monospace, monospace;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: 1rem; }
+
+body {
+	margin: 0;
+	background: var(--bg);
+	color: var(--ink);
+	font: 400 1rem/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+	overflow-wrap: anywhere;
+}
+
+img { max-width: 100%; height: auto; }
+
+a { color: var(--pink-dark); }
+a:focus-visible, .button:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
+
+h1, h2, h3, .brand { font-family: var(--pixel); font-weight: 400; letter-spacing: .02em; }
+
+.skip {
+	position: absolute;
+	left: -200vw;
+	top: 0;
+	background: var(--ink);
+	color: var(--card);
+	padding: .6rem 1rem;
+}
+.skip:focus { left: 0; z-index: 10; }
+
+.wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 1rem; }
+
+/* Header */
+header.top {
+	display: flex;
+	flex-wrap: wrap;
+	gap: .25rem 1.25rem;
+	align-items: center;
+	justify-content: space-between;
+	max-width: var(--maxw);
+	margin: 0 auto;
+	padding: .75rem 1rem;
+}
+.brand {
+	display: inline-flex;
+	align-items: center;
+	gap: .5rem;
+	color: var(--ink);
+	text-decoration: none;
+	font-size: clamp(1.6rem, 7vw, 2rem);
+	line-height: 1;
+	min-height: 44px;           /* a full tap target */
+}
+.brand img { width: 2rem; height: 2rem; border-radius: .5rem; }
+header.top nav { display: flex; flex-wrap: wrap; gap: 0 1rem; }
+header.top nav a {
+	color: var(--muted);
+	text-decoration: none;
+	padding: .6rem 0;           /* 44 px tap targets */
+	min-height: 44px;
+	display: inline-flex;
+	align-items: center;
+}
+header.top nav a:hover, header.top nav a[aria-current] { color: var(--ink); }
+
+/* Hero */
+.hero {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr);
+	gap: 2rem;
+	align-items: center;
+	max-width: var(--maxw);
+	margin: 0 auto;
+	padding: clamp(1rem, 5vw, 3rem) 1rem 2rem;
+}
+.hero h1 {
+	margin: 0;
+	font-size: clamp(3.4rem, 16vw, 6rem);
+	line-height: .9;
+}
+.hero .tagline {
+	margin: .5rem 0 0;
+	font-family: var(--pixel);
+	font-size: clamp(1.5rem, 6.5vw, 2.1rem);
+	line-height: 1.1;
+	color: var(--pink-dark);
+}
+.lede {
+	max-width: 34rem;
+	margin: 1rem 0;
+	font-size: clamp(1.02rem, 3.8vw, 1.15rem);
+}
+.get { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem 1rem; margin-top: 1.25rem; }
+.get .badge img { display: block; width: 200px; height: auto; }
+
+/* A phone-shaped frame around a 9:16 screenshot */
+.phone {
+	margin: 0 auto;
+	width: min(100%, 17rem);
+	padding: .55rem;
+	border-radius: 2rem;
+	background: var(--ink);
+	box-shadow: 0 1.2rem 2.5rem rgba(84, 55, 75, .25);
+}
+.phone img {
+	display: block;
+	width: 100%;
+	aspect-ratio: 9 / 16;
+	object-fit: cover;
+	border-radius: 1.5rem;
+	background: var(--card);
+}
+
+@media (min-width: 48rem) {
+	.hero { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); }
+	.hero .phone { width: 19rem; }
+}
+
+/* Sections */
+.section { padding: 2.5rem 0; }
+.section.alt { background: var(--card); }
+.section h2 { font-size: clamp(2.2rem, 9vw, 3rem); line-height: 1; margin: 0 0 .5rem; }
+.section .intro { max-width: 40rem; margin: 0 0 1.5rem; }
+
+.split {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr);
+	gap: 2rem;
+	align-items: start;
+}
+@media (min-width: 48rem) {
+	.split { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); }
+}
+
+.steps { list-style: none; margin: 0; padding: 0; counter-reset: step; display: grid; gap: 1rem; }
+.steps li {
+	counter-increment: step;
+	background: var(--card);
+	border: 3px solid var(--ink);
+	border-radius: 1rem;
+	padding: 1rem 1.1rem 1rem 3.6rem;
+	position: relative;
+}
+.section.alt .steps li { background: #fff; }
+.steps li::before {
+	content: counter(step);
+	position: absolute;
+	left: .9rem;
+	top: .7rem;
+	font-family: var(--pixel);
+	font-size: 2.4rem;
+	line-height: 1;
+	color: var(--pink);
+}
+.steps b { display: block; font-size: 1.05rem; }
+
+/* Power-ups */
+.pu-groups { display: grid; gap: 1.5rem; }
+.pu-groups h3 { font-size: 1.9rem; margin: 0 0 .5rem; line-height: 1; }
+.pu-groups h3.good { color: #1f9d58; }
+.pu-groups h3.bad { color: #d23b3b; }
+.pu-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(min(15rem, 100%), 1fr));
+	gap: .6rem;
+}
+.pu-list li {
+	display: flex;
+	align-items: center;
+	gap: .75rem;
+	background: #fff;
+	border-radius: .9rem;
+	padding: .55rem .8rem;
+}
+.pu-list img { width: 3.6rem; height: auto; flex: none; }
+.pu-list b { display: block; line-height: 1.3; }
+.pu-list span { color: var(--muted); font-size: .92rem; line-height: 1.35; }
+
+/* Stages: the formations, then the brick kinds */
+.formations {
+	list-style: none;
+	margin: 0 0 1.75rem;
+	padding: 0;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(min(6.5rem, 100%), 1fr));
+	gap: .9rem .6rem;
+	text-align: center;
+}
+.formations img {
+	display: block;
+	width: 100%;
+	aspect-ratio: 1;
+	border-radius: 50%;
+	background: var(--card);
+}
+.formations b { display: block; margin-top: .3rem; font-family: var(--pixel); font-size: 1.35rem; line-height: 1; font-weight: 400; }
+h3.sub { font-size: 1.9rem; margin: 0 0 .5rem; line-height: 1; }
+.kinds { list-style: none; margin: 0; padding: 0; display: grid; gap: .45rem; }
+.kinds li { background: var(--card); border-radius: .9rem; padding: .55rem .9rem; line-height: 1.45; }
+.kinds b { color: var(--pink-dark); }
+
+/* Perks: the power-up list, with round badges */
+.pu-list.perks img { width: 2.8rem; }
+
+/* Themes */
+.themes {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(min(9.5rem, 100%), 1fr));
+	gap: 1rem;
+}
+.themes li { text-align: center; }
+.themes img {
+	display: block;
+	width: 100%;
+	aspect-ratio: 9 / 16;
+	object-fit: cover;
+	border-radius: 1rem;
+	border: 3px solid var(--ink);
+	background: var(--card);
+}
+.themes b { display: block; margin-top: .45rem; font-family: var(--pixel); font-size: 1.45rem; line-height: 1; font-weight: 400; }
+.themes span { display: block; color: var(--muted); font-size: .88rem; line-height: 1.35; margin-top: .2rem; }
+.themes .premium span { color: var(--pink-dark); font-weight: 600; }
+.bundle {
+	margin: 1.5rem 0 0;
+	padding: .9rem 1.1rem;
+	border: 3px dashed var(--pink);
+	border-radius: 1rem;
+	background: #fff;
+}
+
+/* Trophies */
+.trophies {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(min(6.5rem, 100%), 1fr));
+	gap: 1rem .5rem;
+	text-align: center;
+}
+.trophies img { width: 4.5rem; height: 4.5rem; display: block; margin: 0 auto .35rem; }
+.trophies b { display: block; font-size: .9rem; line-height: 1.25; }
+
+/* Buttons and pills */
+.button {
+	display: inline-block;
+	padding: .8rem 1.4rem;
+	min-height: 44px;
+	border-radius: 999px;
+	background: var(--pink);
+	color: #fff;
+	text-decoration: none;
+	font-family: var(--pixel);
+	font-size: clamp(1.4rem, 5vw, 1.7rem);
+	line-height: 1;
+	box-shadow: 0 .35rem 0 var(--pink-dark);
+}
+
+/* Document pages (privacy, 404) */
+.doc { max-width: 44rem; margin: 0 auto; padding: 1rem 1rem 3rem; }
+.doc h1 { font-size: clamp(2.6rem, 11vw, 3.6rem); line-height: 1; margin: .5rem 0; }
+.doc h2 { font-size: clamp(1.9rem, 7vw, 2.4rem); line-height: 1; margin-top: 2.25rem; }
+.doc .kicker { color: var(--muted); margin: 0; }
+.doc ul, .doc ol { padding-left: 1.25rem; }
+.doc li { margin: .35rem 0; }
+.doc code { background: var(--card); padding: .1em .35em; border-radius: .3em; }
+/* Policy versions (tools/policy.mjs): the history table, and the notice on
+   an archived copy. */
+.archived {
+	margin: 1rem 0 0;
+	padding: .9rem 1.1rem;
+	border-radius: .9rem;
+	background: #fff4c2;
+	border: 3px solid var(--orange);
+}
+.archived strong { display: block; }
+.tablewrap { overflow-x: auto; margin: 0 0 1rem; }
+table { border-collapse: collapse; width: 100%; }
+/* Words wrap normally in the table (the body's overflow-wrap: anywhere,
+   there for long URLs, crushed the second column to a letter per line at
+   320 px next to a no-wrap date). */
+th, td { text-align: left; vertical-align: top; padding: .6rem .75rem; border-bottom: 2px solid var(--card); overflow-wrap: normal; }
+th { color: var(--muted); }
+td:first-child { width: 42%; }
+tr[data-current] td { background: var(--card); }
+
+.toc { background: var(--card); border-radius: .9rem; padding: 1rem 1.25rem; margin: 1.5rem 0; }
+.toc h2 { margin: 0 0 .5rem; font-size: 1.6rem; }
+.toc ol { margin: 0; }
+
+footer { margin-top: 0; background: var(--ink); color: var(--card); }
+footer .inner {
+	max-width: var(--maxw);
+	margin: 0 auto;
+	padding: 1.25rem 1rem;
+	display: flex;
+	flex-wrap: wrap;
+	gap: .5rem 1.5rem;
+	font-size: .9rem;
+}
+footer a { color: var(--card); }
+
+@media (prefers-reduced-motion: reduce) {
+	html { scroll-behavior: auto; }
+}

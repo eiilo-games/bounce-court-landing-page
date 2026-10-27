@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+	xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+	<url>
+		<loc>https://bounce-court.com/</loc>
+		<lastmod>2026-10-27</lastmod>
+		<image:image><image:loc>https://bounce-court.com/img/social.png</image:loc></image:image>
+		<image:image><image:loc>https://bounce-court.com/img/icon.png</image:loc></image:image>
+		<image:image><image:loc>https://bounce-court.com/img/shots/hero.webp</image:loc></image:image>
+		<image:image><image:loc>https://bounce-court.com/img/shots/tutorial.webp</image:loc></image:image>
+		<image:image><image:loc>https://bounce-court.com/img/shots/stages.webp</image:loc></image:image>
+		<image:image><image:loc>https://bounce-court.com/img/shots/perks.webp</image:loc></image:image>
+		<image:image><image:loc>https://bounce-court.com/img/shots/powerups.webp</image:loc></image:image>
+		<image:image><image:loc>https://bounce-court.com/img/formations/rings.webp</image:loc></image:image>
+		<image:image><image:loc>https://bounce-court.com/img/formations/spiral.webp</image:loc></image:image>
+		<image:image><image:loc>https://bounce-court.com/img/formations/spokes.webp</image:loc></image:image>
+		<image:image><image:loc>https://bounce-court.com/img/formations/clusters.webp</image:loc></image:image>
+		<image:image><image:loc>https://bounce-court.com/img/formations/flower.webp</image:loc></image:image>
+		<image:image><image:loc>https://bounce-court.com/img/formations/pulse.webp</image:loc></image:image>
+		<image:image><image:loc>https://bounce-court.com/img/formations/gate.webp</image:loc></image:image>
+		<image:image><image:loc>https://bounce-court.com/img/shots/bubble_pop.webp</image:loc></image:image>
+		<image:image><image:loc>https://bounce-court.com/img/shots/one_bit.webp</image:loc></image:image>
+		<image:image><image:loc>https://bounce-court.com/img/shots/neon.webp</image:loc></image:image>
+		<image:image><image:loc>https://bounce-court.com/img/shots/court86.webp</image:loc></image:image>
+		<image:image><image:loc>https://bounce-court.com/img/shots/orbital.webp</image:loc></image:image>
+		<image:image><image:loc>https://bounce-court.com/img/shots/doodle.webp</image:loc></image:image>
+		<image:image><image:loc>https://bounce-court.com/img/shots/koi.webp</image:loc></image:image>
+		<image:image><image:loc>https://bounce-court.com/img/shots/clockwork.webp</image:loc></image:image>
+		<image:image><image:loc>https://bounce-court.com/img/shots/polar.webp</image:loc></image:image>
+		<image:image><image:loc>https://bounce-court.com/img/shots/dust.webp</image:loc></image:image>
+		<image:image><image:loc>https://bounce-court.com/img/shots/magma.webp</image:loc></image:image>
+	</url>
+	<url>
+		<loc>https://bounce-court.com/privacy/</loc>
+		<lastmod>2026-10-25</lastmod>
+	</url>
+</urlset>

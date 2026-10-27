@@ -1,0 +1,47 @@
+<!doctype html>
+<!-- Source of img/social.png, the 1200x630 share card. Render it with
+     headless Chromium (README, "Share card"); not linked from the site. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<title>Share card</title>
+<style>
+@font-face { font-family: "Kenney Pixel"; src: url("/fonts/kenney_pixel.ttf"); }
+html, body { margin: 0; width: 1200px; height: 630px; overflow: hidden; }
+body {
+	background: #fbd9c9;
+	color: #54374b;
+	font-family: "Kenney Pixel", monospace;
+	position: relative;
+}
+.text { position: absolute; left: 70px; top: 120px; width: 560px; }
+.text img { width: 120px; height: 120px; image-rendering: pixelated; border-radius: 28px; }
+h1 { font-size: 150px; line-height: .82; margin: 24px 0 0; font-weight: 400; }
+p { font-size: 54px; line-height: 1; margin: 22px 0 0; color: #c92f7a; }
+.shots { position: absolute; right: 30px; top: 0; width: 560px; height: 630px; }
+.shots img {
+	position: absolute;
+	width: 230px;
+	border: 10px solid #54374b;
+	border-radius: 34px;
+	box-shadow: 0 20px 40px rgba(84, 55, 75, .3);
+}
+.a { left: 10px; top: 120px; transform: rotate(-8deg); }
+.b { left: 300px; top: 140px; transform: rotate(7deg); }
+.c { left: 150px; top: 60px; transform: rotate(-1deg); z-index: 2; }
+</style>
+</head>
+<body>
+<div class="text">
+	<img src="/img/icon.png" alt="">
+	<h1>Bounce<br>Court</h1>
+	<p>Keep the ball in the circle.</p>
+</div>
+<div class="shots">
+	<img class="a" src="/img/shots/neon.webp" alt="">
+	<img class="b" src="/img/shots/polar.webp" alt="">
+	<img class="c" src="/img/shots/hero.webp" alt="">
+</div>
+</body>
+</html>
